@@ -168,7 +168,7 @@ const AppModel = {
     headline: "¿Listo para proteger lo que más importa?",
     subtext:  "Completa el formulario y un asesor te contactará en menos de 24 horas. Sin compromisos, sin presión.",
     info: [
-      { icon: "📍", label: "Dirección", value: "Av. Granda Centeno Oe5-50 y Vasco De Contreras Edificio Ikonus. PB. Oficina 3. Quito, Ecuador" },
+      { icon: "📍", label: "Dirección", value: "Av. Gaspar de Escalona N. 38 39 y Jose Villalengua. Ed. Mayfair Piso 2. Quito, Ecuador" },
       { icon: "📞", label: "Teléfono",  value: "099 866 1249" },
       { icon: "✉️", label: "Email",     value: "yordonez@smartbroker.com.ec" },
       { icon: "🕐", label: "Horario",   value: "Lun–Vie: 8am–6pm" },
