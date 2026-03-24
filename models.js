@@ -13,7 +13,7 @@ const AppModel = {
     description: "Corredora de seguros",
     logo: {
       text: "Smart<span class='logo-accent'>Broker</span>",
-      image: "assets/LogoSmart.JPG", // Usa el logo real proporcionado
+      image: "assets/Nuevo_Logo_SB.JPG",         // Logo nítido fondo negro
     },
     colors: {
       primary:   "#2D2D2D",   // Gris carbón (texto "smart" del logo)

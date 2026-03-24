@@ -98,17 +98,8 @@ export const Views = {
           <div class="hero__card-stack">
             <div class="hero__card hero__card--back"></div>
             <div class="hero__card hero__card--mid"></div>
-            <div class="hero__card hero__card--front">
-              <div class="hc-icon">
-                <svg viewBox="0 0 48 48" fill="none"><path d="M24 42s-17-10.5-17-22a12 12 0 0124 0 12 12 0 0124 0C41 31.5 24 42 24 42z" stroke="var(--accent)" stroke-width="2.5"/><path d="M17 24h6l3-5 4 10 3-5h5" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <p class="hc-label">Plan Activo</p>
-              <p class="hc-value">Familia Completa</p>
-              <div class="hc-bar"><div class="hc-bar__fill"></div></div>
-              <div class="hc-meta">
-                <span>Cobertura</span>
-                <strong>98%</strong>
-              </div>
+            <div class="hero__card hero__card--front hero__card--img">
+              <img src="assets/Seguridad_Privada_21.png" alt="Seguro Responsabilidad Civil" class="hc-bg-img" />
             </div>
             <!-- Floating badge -->
             <div class="hero__badge hero__badge--1">
@@ -363,8 +354,8 @@ export const Views = {
                 <path d="M18 7 A11 11 0 0 1 29 18" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
               </svg>
             </span>
-            `}
             <span class="logo-text">${brand.logo.text}</span>
+            `}
           </a>
           <p>${brand.description} · ${brand.tagline}</p>
           <div class="footer__social" aria-label="Redes sociales">
