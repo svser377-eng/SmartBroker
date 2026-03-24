@@ -33,7 +33,22 @@ export const Views = {
         <!-- DESKTOP NAV -->
         <nav class="header__nav" aria-label="Navegación principal">
           <ul role="list">
-            ${nav.map(item => `
+            ${nav.map(item => item.dropdown ? `
+              <li class="nav-item--dropdown">
+                <a href="${item.href}" class="nav-link nav-link--dropdown" aria-haspopup="true">
+                  ${item.label}
+                  <svg class="nav-caret" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </a>
+                <div class="nav-submenu" role="menu">
+                  ${item.dropdown.map(sub => `
+                    <a href="${sub.href}" class="nav-submenu__item" role="menuitem">
+                      <span class="nav-submenu__icon" aria-hidden="true">${sub.icon}</span>
+                      <span class="nav-submenu__label">${sub.label}</span>
+                    </a>
+                  `).join("")}
+                </div>
+              </li>
+            ` : `
               <li><a href="${item.href}" class="nav-link">${item.label}</a></li>
             `).join("")}
           </ul>
@@ -49,7 +64,16 @@ export const Views = {
       <!-- MOBILE MENU -->
       <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menú móvil">
         <ul role="list">
-          ${nav.map(item => `
+          ${nav.map(item => item.dropdown ? `
+            <li>
+              <span class="mobile-link mobile-link--group">${item.label}</span>
+              <ul class="mobile-submenu" role="list">
+                ${item.dropdown.map(sub => `
+                  <li><a href="${sub.href}" class="mobile-link mobile-link--sub">${sub.icon} ${sub.label}</a></li>
+                `).join("")}
+              </ul>
+            </li>
+          ` : `
             <li><a href="${item.href}" class="mobile-link">${item.label}</a></li>
           `).join("")}
         </ul>
@@ -62,14 +86,16 @@ export const Views = {
   renderHero(hero) {
     return `
     <section class="hero" id="inicio" aria-labelledby="hero-heading">
-      <!-- Decorative background shapes -->
+      <!-- Photo background with overlay -->
       <div class="hero__bg" aria-hidden="true">
-        <div class="hero__orb hero__orb--1"></div>
-        <div class="hero__orb hero__orb--2"></div>
-        <div class="hero__grid"></div>
+        <picture>
+          <source srcset="assets/equipo-hero.webp" type="image/webp">
+          <img src="assets/equipo-hero.jpg" alt="" class="hero__bg-img" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+        <div class="hero__overlay"></div>
       </div>
 
-      <div class="container hero__inner">
+      <div class="container hero__inner hero__inner--full">
         <div class="hero__content reveal">
           <span class="eyebrow">${hero.eyebrow}</span>
           <h1 id="hero-heading">${hero.headline}</h1>
@@ -90,26 +116,6 @@ export const Views = {
                 <span>${s.label}</span>
               </div>
             `).join("")}
-          </div>
-        </div>
-
-        <!-- Hero illustration -->
-        <div class="hero__visual reveal reveal--right" aria-hidden="true">
-          <div class="hero__card-stack">
-            <div class="hero__card hero__card--back"></div>
-            <div class="hero__card hero__card--mid"></div>
-            <div class="hero__card hero__card--front hero__card--img">
-              <img src="assets/Seguridad_Privada_21.png" alt="Seguro Responsabilidad Civil" class="hc-bg-img" />
-            </div>
-            <!-- Floating badge -->
-            <div class="hero__badge hero__badge--1">
-              <svg viewBox="0 0 20 20" fill="none"><path d="M10 2l2 6h6l-5 3.5 2 6-5-3.5-5 3.5 2-6L2 8h6z" fill="var(--accent)"/></svg>
-              <span>Certificados</span>
-            </div>
-            <div class="hero__badge hero__badge--2">
-              <span class="badge-num">+5K</span>
-              <span>Clientes</span>
-            </div>
           </div>
         </div>
       </div>
@@ -298,7 +304,7 @@ export const Views = {
             </div>
             <div class="form-group">
               <label for="cf-phone">Teléfono</label>
-              <input type="tel" id="cf-phone" name="phone" placeholder="+593 000 000 000" autocomplete="tel"/>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel"/>
               <span class="form-error" id="err-phone" role="alert" aria-live="polite"></span>
             </div>
             <div class="form-group">

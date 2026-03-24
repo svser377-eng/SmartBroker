@@ -13,7 +13,7 @@ const AppModel = {
     description: "Corredora de seguros",
     logo: {
       text: "Smart<span class='logo-accent'>Broker</span>",
-      image: "assets/Nuevo_Logo_SB.JPG",         // Logo nítido fondo negro
+      image: "assets/logo-transparent.png",      // Logo sin fondo
     },
     colors: {
       primary:   "#2D2D2D",   // Gris carbón (texto "smart" del logo)
@@ -30,7 +30,15 @@ const AppModel = {
   /* ───────── NAV ───────── */
   nav: [
     { label: "Inicio",    href: "#inicio" },
-    { label: "Servicios", href: "#servicios" },
+    {
+      label: "Servicios", href: "#servicios",
+      dropdown: [
+        { label: "Seguro de Vida",     href: "#vida",        icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M10 17s-7-4.35-7-9a5 5 0 0110 0 5 5 0 0110 0c0 4.65-7 9-7 9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10h2l1.5-2.5 2 5 1.5-2.5H16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+        { label: "Seguro de Salud",    href: "#salud",       icon: `<svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>` },
+        { label: "Seguro Vehicular",   href: "#vehicular",   icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M3 12l2-5h10l2 5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="2" y="12" width="16" height="4" rx="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/></svg>` },
+        { label: "Seguro Empresarial", href: "#empresarial", icon: `<svg viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 7V5a2 2 0 014 0v2" stroke="currentColor" stroke-width="1.5"/><path d="M3 11h14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>` },
+      ]
+    },
     { label: "Nosotros",  href: "#nosotros" },
     { label: "Contacto",  href: "#contacto" },
   ],
@@ -168,7 +176,7 @@ const AppModel = {
     headline: "¿Listo para proteger lo que más importa?",
     subtext:  "Completa el formulario y un asesor te contactará en menos de 24 horas. Sin compromisos, sin presión.",
     info: [
-      { icon: "📍", label: "Dirección", value: "Av. Gaspar de Escalona N. 38 39 y Jose Villalengua. Ed. Mayfair Piso 2. Quito, Ecuador" },
+      { icon: "📍", label: "Dirección", value: "Av. Granda Centeno Oe5-50 y Vasco De Contreras Edificio Ikonus. PB. Oficina 3. Quito, Ecuador" },
       { icon: "📞", label: "Teléfono",  value: "099 866 1249" },
       { icon: "✉️", label: "Email",     value: "yordonez@smartbroker.com.ec" },
       { icon: "🕐", label: "Horario",   value: "Lun–Vie: 8am–6pm" },
