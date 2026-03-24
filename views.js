@@ -298,7 +298,7 @@ export const Views = {
             </div>
             <div class="form-group">
               <label for="cf-phone">Teléfono</label>
-              <input type="tel" id="cf-phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel"/>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+593 000 000 000" autocomplete="tel"/>
               <span class="form-error" id="err-phone" role="alert" aria-live="polite"></span>
             </div>
             <div class="form-group">
