@@ -296,27 +296,37 @@ p { color: var(--color-muted); }
 
 .nav-submenu {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-4px);
   background: #141414;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius-md);
-  padding: 8px;
+  padding: 16px 8px 8px;
   min-width: 220px;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-50%) translateY(-6px);
   transition: opacity var(--dur-base) var(--ease),
               transform var(--dur-base) var(--ease);
   z-index: 950;
   box-shadow: 0 16px 48px rgba(0,0,0,0.5);
 }
 
+/* Puente invisible que cubre el gap entre el link y el submenú */
 .nav-submenu::before {
   content: '';
   position: absolute;
-  top: -5px;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
+/* Flechita decorativa */
+.nav-submenu::after {
+  content: '';
+  position: absolute;
+  top: 8px;
   left: 50%;
   margin-left: -5px;
   width: 10px;
