@@ -33,6 +33,7 @@ const App = {
         Views.renderSitemap(brand, sitemap),
       '</main>',
       Views.renderFooter(brand, sitemap, contact),
+      Views.renderDataModal(),
     ].join("");
 
     // ── Arrancar controladores ──

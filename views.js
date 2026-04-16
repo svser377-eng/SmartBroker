@@ -288,7 +288,7 @@ export const Views = {
             </div>
             <div class="form-group">
               <label for="cf-phone">Teléfono</label>
-              <input type="tel" id="cf-phone" name="phone" placeholder="+593 00 000 0000" autocomplete="tel"/>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel"/>
               <span class="form-error" id="err-phone" role="alert" aria-live="polite"></span>
             </div>
             <div class="form-group">
@@ -372,7 +372,10 @@ export const Views = {
           <div class="footer__col">
             <h4>Legal</h4>
             <ul role="list">
-              ${sitemap.legal.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}
+              ${sitemap.legal.map(l => l.label === "Tratamiento de datos"
+                ? `<li><a href="#" class="modal-trigger" data-modal="data-policy" aria-haspopup="dialog">${l.label}</a></li>`
+                : `<li><a href="${l.href}">${l.label}</a></li>`
+              ).join("")}
             </ul>
           </div>
         </nav>
@@ -414,6 +417,181 @@ export const Views = {
         </div>
       </div>
     </section>`;
+  },
+
+  /* ─── MODAL: POLÍTICA DE TRATAMIENTO DE DATOS ─── */
+  renderDataModal() {
+    return `
+    <div class="modal-backdrop" id="modal-data-policy" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body" hidden>
+      <div class="modal">
+        <!-- Header -->
+        <div class="modal__header">
+          <div class="modal__header-left">
+            <div class="modal__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="modal__title" id="modal-title">Política de Protección de Datos Personales</div>
+              <div class="modal__subtitle">SMARTBROKER CIA LTDA. · RUC 1792783933001</div>
+            </div>
+          </div>
+          <button class="modal__close" id="modal-close-top" aria-label="Cerrar política de datos">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal__body" id="modal-body">
+
+          <div class="modal-meta">
+            <strong>Responsable del Tratamiento</strong>
+            SMARTBROKER CIA LTDA. · Gaspar de Escalona N38-39 y Av. Juan José, Edificio Mayfair, 2do piso · yordonez@smartbroker.com.ec
+          </div>
+
+          <p class="modal-section-title">1. Antecedentes</p>
+          <p>SMARTBROKER CIA LTDA. reconoce la importancia de la protección de los datos personales y manifiesta su compromiso de garantizar el tratamiento lícito, leal, transparente, limitado y seguro de los mismos, en cumplimiento de la Ley Orgánica de Protección de Datos Personales (LOPDP) y su normativa complementaria.</p>
+
+          <p class="modal-section-title">2. Objeto</p>
+          <p>Establecer los principios, reglas, responsabilidades, procedimientos y medidas técnicas y organizativas que regulan el tratamiento de datos personales efectuado por la Empresa, así como las condiciones para el ejercicio de los derechos de los titulares, aplicándose a todos los procesos descritos en el anexo de procesos de la Empresa.</p>
+
+          <p class="modal-section-title">3. Responsable</p>
+          <div class="modal-meta">
+            <strong>Datos del Responsable</strong>
+            Razón social: SMARTBROKER CIA LTDA. · RUC: 1792783933001<br>
+            Dirección: Gaspar de Escalona N38-39 y Av. Juan José, Edificio Mayfair, 2do piso<br>
+            Correo electrónico: yordonez@smartbroker.com.ec
+          </div>
+
+          <p class="modal-section-title">4. Delegado de Protección de Datos</p>
+          <div class="modal-meta">
+            <strong>Delegado DPO</strong>
+            Luis Villarroel · Correo: info@abogadoslatam.com
+          </div>
+          <p>El Delegado funge como canal de comunicación entre los titulares y la Empresa, y supervisa el cumplimiento de la presente política y de la normativa aplicable.</p>
+
+          <p class="modal-section-title">5. Marco Legal</p>
+          <p>La presente política se basa en la LOPDP y su reglamentación aplicable, así como en las demás disposiciones legales relacionadas con la protección de datos personales, la privacidad, la seguridad de la información y la actividad aseguradora en Ecuador.</p>
+
+          <div class="modal-divider"></div>
+
+          <p class="modal-section-title">6. Definiciones</p>
+          <ul>
+            <li><strong>Datos personales:</strong> toda información concerniente a una persona natural identificada o identificable.</li>
+            <li><strong>Datos sensibles:</strong> datos que afectan la intimidad o cuya utilización indebida puede generar discriminación, incluyendo datos de salud.</li>
+            <li><strong>Titular:</strong> la persona natural cuyos datos personales son objeto de tratamiento.</li>
+            <li><strong>Responsable del tratamiento:</strong> persona que decide sobre la finalidad y los medios del tratamiento.</li>
+            <li><strong>Encargado del tratamiento:</strong> persona que realiza el tratamiento por cuenta del responsable.</li>
+            <li><strong>Consentimiento:</strong> manifestación de voluntad libre, específica, informada e inequívoca mediante la cual el titular autoriza el tratamiento.</li>
+          </ul>
+
+          <p class="modal-section-title">7. Obtención de Datos</p>
+          <p>La Empresa obtiene datos personales directamente del titular mediante formularios web, campañas en redes sociales, solicitudes de cotización, contratos, comunicaciones electrónicas, documentación aportada por el titular, o por medios físicos y digitales razonablemente idóneos.</p>
+          <p>En tratamientos que requieran consentimiento, la Empresa lo recaba de forma libre, específica, informada y verificable, antes de iniciar el tratamiento.</p>
+
+          <p class="modal-section-title">8. Categorías de Datos</p>
+          <ul>
+            <li><strong>a) Identificación:</strong> nombre y apellidos, cédula, número de identificación.</li>
+            <li><strong>b) Contacto:</strong> dirección postal, correo electrónico, número de teléfono.</li>
+            <li><strong>c) Financieros y contractuales:</strong> información bancaria, datos de facturación, datos contractuales.</li>
+            <li><strong>d) Bien asegurado:</strong> matrícula, factura, características técnicas del bien.</li>
+            <li><strong>e) Salud (sensibles):</strong> preexistencias, historias clínicas, certificados médicos, recetas y facturas médicas — únicamente en pólizas médicas y siniestros médicos.</li>
+            <li><strong>f) Videovigilancia:</strong> grabaciones de video (sin audio) en áreas comunes y accesos.</li>
+            <li><strong>g) Datos laborales:</strong> información de personal interno, freelancers y proveedores (identificación, contacto, contractuales y financieros).</li>
+          </ul>
+
+          <div class="modal-divider"></div>
+
+          <p class="modal-section-title">9. Base Legal del Tratamiento</p>
+          <ul>
+            <li><strong>a) Consentimiento</strong> (Art. 7 núm. 1 LOPDP): para tratamientos con autorización expresa, especialmente datos sensibles y campañas de captación.</li>
+            <li><strong>b) Obligaciones legales</strong> (Art. 7 núm. 2 LOPDP): materia laboral, tributaria y de seguridad social.</li>
+            <li><strong>c) Ejecución contractual</strong> (Art. 7 núm. 5 LOPDP): gestión de cotizaciones, emisión y administración de pólizas y siniestros.</li>
+            <li><strong>d) Interés legítimo</strong> (Art. 7 núm. 8 LOPDP): instalación y gestión de sistemas de videovigilancia para seguridad física.</li>
+          </ul>
+
+          <p class="modal-section-title">10. Finalidades</p>
+          <ul>
+            <li><strong>a) Marketing y Captación Digital:</strong> captar potenciales clientes y realizar acciones de seguimiento y remarketing.</li>
+            <li><strong>b) Cotización de Seguros:</strong> elaborar cotizaciones, analizar riesgo y remitir propuestas comerciales.</li>
+            <li><strong>c) Pólizas Médicas y Siniestros Médicos:</strong> gestionar información médica para emisión de pólizas de salud, con consentimiento expreso previo.</li>
+            <li><strong>d) Pólizas No Médicas y Siniestros:</strong> emitir pólizas, gestionar siniestros, renovaciones y cumplir obligaciones contractuales.</li>
+            <li><strong>e) Personal, Freelancers y Proveedores:</strong> administrar relaciones laborales y contractuales, procesar pagos y cumplir obligaciones legales.</li>
+            <li><strong>f) Videovigilancia:</strong> garantizar seguridad física y control de accesos en las instalaciones.</li>
+            <li><strong>g) Fines administrativos y normativos:</strong> conservación de registros para cumplimiento legal y regulatorio.</li>
+          </ul>
+
+          <div class="modal-divider"></div>
+
+          <p class="modal-section-title">11. Plazos de Conservación</p>
+          <ul>
+            <li><strong>Marketing y captación:</strong> máximo 2 años desde la última interacción válida o hasta revocación del consentimiento.</li>
+            <li><strong>Cotizaciones no convertidas:</strong> 3 años desde la prestación del servicio o última relación.</li>
+            <li><strong>Pólizas médicas y siniestros (datos sensibles):</strong> 10 años desde la terminación de la relación contractual o cierre del caso.</li>
+            <li><strong>Pólizas no médicas y siniestros:</strong> 7 años desde la terminación de la relación contractual.</li>
+            <li><strong>Personal, freelancers y proveedores:</strong> 7 años desde la terminación de la relación laboral o comercial.</li>
+            <li><strong>Videovigilancia:</strong> 7 días naturales desde la captura; se sobrescribe automáticamente salvo incidente o requerimiento legal.</li>
+          </ul>
+
+          <p class="modal-section-title">12. Transferencias</p>
+          <p>La Empresa podrá realizar transferencias de datos únicamente cuando exista base legal y se garantice un nivel de protección adecuado:</p>
+          <ul>
+            <li>A aseguradoras, reaseguradoras y proveedores vinculados a la gestión de pólizas y siniestros, mediante contratos con cláusulas de protección de datos.</li>
+            <li>Datos sensibles de salud únicamente con consentimiento expreso del titular.</li>
+            <li>Por requerimiento de autoridad competente o imperativo legal.</li>
+            <li>Transferencias internacionales sujetas a garantías adecuadas (cláusulas contractuales tipo u otros mecanismos válidos).</li>
+          </ul>
+
+          <div class="modal-divider"></div>
+
+          <p class="modal-section-title">13. Derechos de los Titulares</p>
+          <p>Los titulares podrán ejercer los derechos reconocidos en la LOPDP: acceso, rectificación, supresión (cancelación), oposición, y demás previstos por la normativa aplicable. La Empresa facilitará su ejercicio mediante procedimientos ágiles, transparentes y gratuitos.</p>
+
+          <p class="modal-section-title">14. Procedimiento ARCO</p>
+          <p>Para ejercer sus derechos ARCO (Acceso, Rectificación, Cancelación/Supresión y Oposición), los titulares deberán presentar solicitud al Delegado de Protección de Datos mediante comunicación escrita o electrónica a <strong>info@abogadoslatam.com</strong> o a <strong>yordonez@smartbroker.com.ec</strong>, aportando documentación que acredite su identidad.</p>
+
+          <p class="modal-section-title">15. Seguridad</p>
+          <p>La Empresa adopta medidas técnicas y organizativas para garantizar un nivel de seguridad adecuado:</p>
+          <ul>
+            <li>Protección perimetral de sistemas, antivirus actualizados y gestión de parches.</li>
+            <li>Autenticación mediante credenciales y políticas de contraseñas.</li>
+            <li>Control de accesos físicos y lógicos basados en roles y principio de mínimo privilegio.</li>
+            <li>Encriptación de información sensible en tránsito y en reposo.</li>
+            <li>Contratos con encargados del tratamiento con obligaciones de seguridad y confidencialidad.</li>
+            <li>Planes de continuidad del negocio y respuesta ante incidentes.</li>
+          </ul>
+
+          <p class="modal-section-title">16. Cookies</p>
+          <p>En los sitios web y formularios de la Empresa se podrán utilizar cookies y tecnologías similares para finalidades técnicas, analíticas y de marketing. La instalación de cookies no estrictamente necesarias requerirá consentimiento previo y explícito del titular.</p>
+
+          <div class="modal-divider"></div>
+
+          <p class="modal-section-title">17. Contacto</p>
+          <div class="modal-meta">
+            <strong>Datos de Contacto</strong>
+            SMARTBROKER CIA LTDA. · Gaspar de Escalona N38-39 y Av. Juan José, Edificio Mayfair, 2do piso<br>
+            Correo: yordonez@smartbroker.com.ec<br>
+            Delegado DPO: Luis Villarroel · info@abogadoslatam.com
+          </div>
+
+          <p class="modal-section-title">18. Vigencia</p>
+          <p>La presente Política entra en vigencia a partir de su aprobación por la Dirección de SMARTBROKER CIA LTDA. y permanecerá vigente hasta que sea modificada. La revisión se realizará, como mínimo, de forma anual o cuando las circunstancias lo ameriten.</p>
+
+          <p style="margin-top: var(--sp-3); font-size:0.78rem; color: var(--color-muted); text-align:center;">Aprobada por la Dirección de SMARTBROKER CIA LTDA.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal__footer">
+          <p class="modal__footer-note">Al hacer clic en <strong>Aceptar</strong> confirmas que has leído y comprendido nuestra Política de Protección de Datos.</p>
+          <div class="modal__footer-actions">
+            <button class="btn btn--ghost modal-close-btn" id="modal-close-bottom" aria-label="Cerrar sin aceptar">Cerrar</button>
+            <button class="btn btn--primary modal-accept-btn" id="modal-accept" aria-label="Aceptar política de datos">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" style="width:16px;height:16px"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Aceptar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>`;
   },
 
 };

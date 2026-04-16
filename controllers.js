@@ -275,6 +275,49 @@ export const Controllers = {
     counters.forEach(el => observer.observe(el));
   },
 
+  /* ═══════════════════════════════════════
+     MODAL CONTROLLER – POLÍTICA DE DATOS
+  ═══════════════════════════════════════ */
+  initDataModal() {
+    const backdrop  = document.getElementById("modal-data-policy");
+    if (!backdrop) return;
+
+    const openModal = () => {
+      backdrop.removeAttribute("hidden");
+      // Force reflow before adding class for transition
+      backdrop.offsetHeight;
+      backdrop.classList.add("is-open");
+      document.body.classList.add("no-scroll");
+      document.getElementById("modal-close-top")?.focus();
+    };
+
+    const closeModal = () => {
+      backdrop.classList.remove("is-open");
+      document.body.classList.remove("no-scroll");
+      setTimeout(() => { backdrop.setAttribute("hidden", ""); }, 320);
+    };
+
+    /* Trigger links */
+    document.querySelectorAll('[data-modal="data-policy"]').forEach(el => {
+      el.addEventListener("click", (e) => { e.preventDefault(); openModal(); });
+    });
+
+    /* Close buttons */
+    document.getElementById("modal-close-top")?.addEventListener("click", closeModal);
+    document.getElementById("modal-close-bottom")?.addEventListener("click", closeModal);
+    document.getElementById("modal-accept")?.addEventListener("click", closeModal);
+
+    /* Click outside modal */
+    backdrop.addEventListener("click", (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+
+    /* Escape key */
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && backdrop.classList.contains("is-open")) closeModal();
+    });
+  },
+
   /* ─── INIT ALL ─── */
   init() {
     this.initNav();
@@ -282,6 +325,7 @@ export const Controllers = {
     this.initTestimonials();
     this.initContactForm();
     this.initCounters();
+    this.initDataModal();
   },
 };
 
