@@ -88,34 +88,18 @@ export const Views = {
     <section class="hero" id="inicio" aria-labelledby="hero-heading">
       <!-- Photo background with overlay -->
       <div class="hero__bg" aria-hidden="true">
-        <picture>
-          <source srcset="assets/equipo-hero.webp" type="image/webp">
-          <img src="assets/equipo-hero.jpg" alt="" class="hero__bg-img" loading="eager" fetchpriority="high" decoding="async">
-        </picture>
+        <img src="assets/equipo-hero.jpg" alt="" class="hero__bg-img" loading="eager" fetchpriority="high" decoding="async">
         <div class="hero__overlay"></div>
       </div>
 
       <div class="container hero__inner hero__inner--full">
         <div class="hero__content reveal">
-          <span class="eyebrow">${hero.eyebrow}</span>
-          <h1 id="hero-heading">${hero.headline}</h1>
-          <p class="hero__subtext">${hero.subtext}</p>
           <div class="hero__actions">
             <a href="${hero.cta.href}" class="btn btn--primary btn--lg">
               ${hero.cta.label}
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a href="${hero.ctaAlt.href}" class="btn btn--ghost btn--lg">${hero.ctaAlt.label}</a>
-          </div>
-
-          <!-- Stats -->
-          <div class="hero__stats" role="list">
-            ${hero.stats.map(s => `
-              <div class="hero__stat" role="listitem">
-                <strong>${s.value}</strong>
-                <span>${s.label}</span>
-              </div>
-            `).join("")}
           </div>
         </div>
       </div>
