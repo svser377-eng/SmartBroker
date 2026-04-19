@@ -58,6 +58,76 @@ const AppModel = {
     ],
   },
 
+  /* ───────── SPIDER MENU DATA ───────── */
+  spiderMenu: [
+    {
+      id: "seguros",
+      label: "Programa\nSeguros",
+      icon: "🛡️",
+      angle: -90,
+      children: [
+        { label: "Vida", icon: "❤️", href: "#vida" },
+        { label: "Salud", icon: "🏥", href: "#salud" },
+        { label: "Vehículo", icon: "🚗", href: "#vehicular" },
+      ],
+    },
+    {
+      id: "pymes",
+      label: "PYMES",
+      icon: "🏢",
+      angle: -30,
+      children: [
+        { label: "Todo Riesgo", icon: "🔐", href: "#contacto" },
+        { label: "Resp. Civil", icon: "⚖️", href: "#contacto" },
+        { label: "Empleados", icon: "👷", href: "#contacto" },
+      ],
+    },
+    {
+      id: "empresariales",
+      label: "Empresariales",
+      icon: "🏦",
+      angle: 30,
+      children: [
+        { label: "Corporativo", icon: "🏛️", href: "#empresarial" },
+        { label: "Flota", icon: "🚛", href: "#contacto" },
+        { label: "D&O", icon: "📊", href: "#contacto" },
+      ],
+    },
+    {
+      id: "individuales",
+      label: "Individuales",
+      icon: "👤",
+      angle: 90,
+      children: [
+        { label: "Accidentes", icon: "⛑️", href: "#contacto" },
+        { label: "Vida", icon: "❤️", href: "#vida" },
+        { label: "Salud", icon: "💊", href: "#salud" },
+      ],
+    },
+    {
+      id: "transporte",
+      label: "Transporte",
+      icon: "🚢",
+      angle: 150,
+      children: [
+        { label: "Casco\nAéreo", icon: "✈️", href: "#contacto" },
+        { label: "Marítimo", icon: "⚓", href: "#contacto" },
+        { label: "Carga", icon: "📦", href: "#contacto" },
+      ],
+    },
+    {
+      id: "fianzas",
+      label: "Fianzas",
+      icon: "📋",
+      angle: 210,
+      children: [
+        { label: "Cumplim.", icon: "✅", href: "#contacto" },
+        { label: "Anticipo", icon: "💰", href: "#contacto" },
+        { label: "Garantía", icon: "🔒", href: "#contacto" },
+      ],
+    },
+  ],
+
   /* ───────── SERVICES ───────── */
   services: [
     {
@@ -104,6 +174,29 @@ const AppModel = {
       title: "Seguro Empresarial",
       desc:  "Soluciones integrales para proteger tu negocio, activos, empleados y responsabilidad frente a terceros.",
       features: ["Todo riesgo empresarial", "Responsabilidad civil", "Cobertura para empleados"],
+    },
+    {
+      id: "pymes",
+      icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="18" width="36" height="24" rx="3" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M14 18V14a2 2 0 012-2h16a2 2 0 012 2v4" stroke="currentColor" stroke-width="2.5"/>
+        <rect x="18" y="28" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="2"/>
+        <path d="M6 30h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>`,
+      title: "Seguros PYMES",
+      desc:  "Paquetes diseñados para pequeñas y medianas empresas que necesitan protección completa sin costos exorbitantes.",
+      features: ["Multirriesgo empresarial", "RC patronal", "Equipos y maquinaria"],
+    },
+    {
+      id: "individuales",
+      icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="16" r="9" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M8 42c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M30 36l3 3 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`,
+      title: "Planes Individuales",
+      desc:  "Protección personalizada para ti y tu familia: vida, salud y accidentes con coberturas flexibles a tu medida.",
+      features: ["Accidentes personales", "Vida individual", "Enfermedad grave"],
     },
   ],
 

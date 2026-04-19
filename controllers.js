@@ -327,6 +327,176 @@ export const Controllers = {
     this.initCounters();
     this.initDataModal();
   },
-};
 
+  /* ─── SPIDER RADIAL MENU ─── */
+  initSpiderMenu(services) {
+    const scene      = document.getElementById("spiderScene");
+    const centerBtn  = document.getElementById("spiderCenter");
+    const nodesWrap  = document.getElementById("spiderNodes");
+    const svg        = document.getElementById("spiderSvg");
+    const hint       = document.getElementById("spiderHint");
+    if (!scene || !centerBtn || !nodesWrap || !svg) return;
+
+    const SCENE_W  = 520;
+    const CX       = SCENE_W / 2;   // 260
+    const CY       = SCENE_W / 2;   // 260
+    const R1       = 130;            // orbit 1 radius (main nodes)
+    const R2       = 240;            // orbit 2 radius (child nodes)
+    const DEG      = Math.PI / 180;
+
+    let menuOpen  = false;
+    let activeId  = null;
+
+    /* helpers */
+    function radPos(angleDeg, r) {
+      return {
+        x: CX + r * Math.cos(angleDeg * DEG),
+        y: CY + r * Math.sin(angleDeg * DEG),
+      };
+    }
+
+    function drawLine(id, x1, y1, x2, y2, opacity) {
+      let el = svg.querySelector(`#${id}`);
+      if (!el) {
+        el = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        el.id = id;
+        svg.appendChild(el);
+      }
+      el.setAttribute("x1", x1); el.setAttribute("y1", y1);
+      el.setAttribute("x2", x2); el.setAttribute("y2", y2);
+      el.setAttribute("stroke", "#E8571A");
+      el.setAttribute("stroke-width", "1");
+      el.setAttribute("stroke-opacity", opacity);
+      el.setAttribute("stroke-dasharray", "5 4");
+    }
+
+    function removeLine(id) {
+      svg.querySelector(`#${id}`)?.remove();
+    }
+
+    /* Build DOM nodes */
+    services.forEach((svc) => {
+      const p = radPos(svc.angle, R1);
+
+      /* Main node */
+      const node = document.createElement("button");
+      node.className = "spider-node";
+      node.id        = "sn-" + svc.id;
+      node.setAttribute("aria-label", svc.label.replace("\n", " "));
+      node.style.left = (p.x - 31) + "px";
+      node.style.top  = (p.y - 31) + "px";
+      node.innerHTML  = `<span class="sn-icon">${svc.icon}</span><span class="sn-label">${svc.label.replace("\n", "<br>")}</span>`;
+      nodesWrap.appendChild(node);
+
+      /* Child nodes */
+      svc.children.forEach((child, j) => {
+        const spread = svc.angle - 20 + j * 20;
+        const cp     = radPos(spread, R2);
+        const childEl = document.createElement("a");
+        childEl.className = "spider-child";
+        childEl.id        = `sc-${svc.id}-${j}`;
+        childEl.href      = child.href || "#contacto";
+        childEl.setAttribute("aria-label", child.label.replace("\n", " "));
+        childEl.style.left = (cp.x - 24) + "px";
+        childEl.style.top  = (cp.y - 24) + "px";
+        childEl.innerHTML  = `<span class="sc-icon">${child.icon}</span><span class="sc-label">${child.label.replace("\n", "<br>")}</span>`;
+        nodesWrap.appendChild(childEl);
+      });
+
+      /* Main node click / hover */
+      node.addEventListener("click",      (e) => { e.stopPropagation(); toggleChildren(svc, p); });
+      node.addEventListener("mouseenter", ()  => { if (menuOpen) openChildren(svc, p); });
+    });
+
+    /* ── toggle main menu ── */
+    function openMenu() {
+      menuOpen = true;
+      centerBtn.classList.add("is-open");
+      centerBtn.setAttribute("aria-expanded", "true");
+      hint.textContent = "Selecciona una categoría";
+      services.forEach((svc, i) => {
+        const p  = radPos(svc.angle, R1);
+        const el = document.getElementById("sn-" + svc.id);
+        setTimeout(() => {
+          el.classList.add("is-visible");
+          drawLine("ln-" + svc.id, CX, CY, p.x, p.y, "0.30");
+        }, i * 65);
+      });
+    }
+
+    function closeMenu() {
+      menuOpen = false;
+      activeId = null;
+      centerBtn.classList.remove("is-open");
+      centerBtn.setAttribute("aria-expanded", "false");
+      hint.textContent = "Pasa el cursor o haz clic para explorar nuestros servicios";
+      services.forEach((svc) => {
+        document.getElementById("sn-" + svc.id)?.classList.remove("is-visible", "is-active");
+        removeLine("ln-" + svc.id);
+        closeChildrenOf(svc);
+      });
+    }
+
+    /* ── children ── */
+    function openChildren(svc, parentPos) {
+      activeId = svc.id;
+      document.getElementById("sn-" + svc.id)?.classList.add("is-active");
+      hint.textContent = svc.label.replace("\n", " ") + " — elige una opción";
+      svc.children.forEach((child, j) => {
+        const spread  = svc.angle - 20 + j * 20;
+        const cp      = radPos(spread, R2);
+        const childEl = document.getElementById(`sc-${svc.id}-${j}`);
+        setTimeout(() => {
+          childEl?.classList.add("is-visible");
+          drawLine(`lc-${svc.id}-${j}`, parentPos.x, parentPos.y, cp.x, cp.y, "0.45");
+        }, j * 75);
+      });
+    }
+
+    function closeChildrenOf(svc) {
+      document.getElementById("sn-" + svc.id)?.classList.remove("is-active");
+      svc.children.forEach((_, j) => {
+        document.getElementById(`sc-${svc.id}-${j}`)?.classList.remove("is-visible");
+        removeLine(`lc-${svc.id}-${j}`);
+      });
+    }
+
+    function toggleChildren(svc, parentPos) {
+      const wasActive = activeId === svc.id;
+      /* close all children first */
+      services.forEach((s) => closeChildrenOf(s));
+      if (!wasActive) {
+        openChildren(svc, parentPos);
+      } else {
+        activeId = null;
+        hint.textContent = "Selecciona una categoría";
+      }
+    }
+
+    /* ── center button ── */
+    centerBtn.addEventListener("click", () => {
+      if (menuOpen) closeMenu(); else openMenu();
+    });
+
+    /* hover on center: auto-open */
+    centerBtn.addEventListener("mouseenter", () => {
+      if (!menuOpen) openMenu();
+    });
+
+    /* click outside: close children but keep menu open; double-click outside closes all */
+    scene.addEventListener("click", (e) => {
+      if (!e.target.closest(".spider-node") && !e.target.closest(".spider-center") && !e.target.closest(".spider-child")) {
+        if (activeId) {
+          services.forEach((s) => closeChildrenOf(s));
+          activeId = null;
+          hint.textContent = "Selecciona una categoría";
+        }
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".spider-scene") && menuOpen) closeMenu();
+    });
+  },
+};
 export default Controllers;

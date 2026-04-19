@@ -13,7 +13,7 @@ const App = {
    * Bootstrap: renderiza la UI y arranca los controllers.
    */
   init() {
-    const { brand, nav, hero, services, about, testimonials, contact, sitemap } = AppModel;
+    const { brand, nav, hero, services, about, testimonials, contact, sitemap, spiderMenu } = AppModel;
 
     // ── Inyección de CSS variables de marca ──
     this._applyBrandColors(brand.colors);
@@ -38,6 +38,9 @@ const App = {
 
     // ── Arrancar controladores ──
     Controllers.init();
+
+    // ── Spider Menu ──
+    Controllers.initSpiderMenu(spiderMenu);
 
     // ── Accesibilidad: skip-link focus ──
     document.getElementById("skip-link")?.addEventListener("click", (e) => {

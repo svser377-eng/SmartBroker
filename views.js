@@ -94,12 +94,26 @@ export const Views = {
 
       <div class="container hero__inner hero__inner--full">
         <div class="hero__content reveal">
-          <div class="hero__actions">
-            <a href="${hero.cta.href}" class="btn btn--primary btn--lg">
-              ${hero.cta.label}
-              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="${hero.ctaAlt.href}" class="btn btn--ghost btn--lg">${hero.ctaAlt.label}</a>
+          <!-- SPIDER RADIAL MENU replacing the two buttons -->
+          <div class="spider-menu-wrap" aria-label="Menú de servicios radial">
+            <div class="spider-scene" id="spiderScene">
+              <div class="spider-orbit-ring spider-orbit-ring--1"></div>
+              <div class="spider-orbit-ring spider-orbit-ring--2"></div>
+              <svg class="spider-svg" id="spiderSvg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+              <!-- CENTER BUTTON -->
+            <button class="spider-center" id="spiderCenter" aria-label="Abrir menú de servicios" aria-expanded="false">
+  <svg class="spider-center__logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="#E8571A" stroke-width="6" stroke-linecap="round" stroke-dasharray="28 282"/>
+    <circle cx="50" cy="50" r="32" fill="none" stroke="#E8571A" stroke-width="5" stroke-linecap="round" stroke-dasharray="20 200"/>
+    <circle cx="50" cy="50" r="19" fill="none" stroke="#E8571A" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 118"/>
+    <circle cx="50" cy="50" r="6" fill="#E8571A"/>
+    <circle cx="50" cy="15" r="4" fill="#E8571A"/>
+  </svg>
+  <span class="spider-center__pulse"></span>
+</button>
+              <div class="spider-nodes" id="spiderNodes"></div>
+            </div>
+            <p class="spider-hint" id="spiderHint">Pasa el cursor o haz clic para explorar nuestros servicios</p>
           </div>
         </div>
       </div>
