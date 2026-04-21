@@ -102,13 +102,7 @@ export const Views = {
               <svg class="spider-svg" id="spiderSvg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
               <!-- CENTER BUTTON -->
             <button class="spider-center" id="spiderCenter" aria-label="Abrir menú de servicios" aria-expanded="false">
-  <svg class="spider-center__logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="50" cy="50" r="45" fill="none" stroke="#E8571A" stroke-width="6" stroke-linecap="round" stroke-dasharray="28 282"/>
-    <circle cx="50" cy="50" r="32" fill="none" stroke="#E8571A" stroke-width="5" stroke-linecap="round" stroke-dasharray="20 200"/>
-    <circle cx="50" cy="50" r="19" fill="none" stroke="#E8571A" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 118"/>
-    <circle cx="50" cy="50" r="6" fill="#E8571A"/>
-    <circle cx="50" cy="15" r="4" fill="#E8571A"/>
-  </svg>
+  <img class="spider-center__img" src="assets/sello-smartbroker.png" alt="SmartBroker" />
   <span class="spider-center__pulse"></span>
 </button>
               <div class="spider-nodes" id="spiderNodes"></div>

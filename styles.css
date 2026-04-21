@@ -1821,16 +1821,14 @@ input.is-valid,   textarea.is-valid   { border-color: var(--success); }
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: var(--accent);               /* Orange brand fill */
-  border: 3px solid rgba(255,255,255,0.25);
+  background: transparent;                 /* Fondo transparente — el logo ya tiene su color */
+  border: none;
   cursor: pointer;
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 0 0 10px rgba(232, 87, 26, 0.15),
-    0 0 40px rgba(232, 87, 26, 0.40);
+  box-shadow: none;
   transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
   overflow: visible;
   padding: 0;
@@ -1838,21 +1836,22 @@ input.is-valid,   textarea.is-valid   { border-color: var(--success); }
 .spider-center:hover,
 .spider-center.is-open {
   box-shadow:
-    0 0 0 16px rgba(232, 87, 26, 0.18),
-    0 0 70px rgba(232, 87, 26, 0.55);
+    0 0 0 14px rgba(232, 87, 26, 0.12),
+    0 0 50px rgba(232, 87, 26, 0.35);
   transform: scale(1.08);
 }
 
-/* Sello image — white icon on orange bg */
+/* Sello SmartBroker — logo naranja circular real */
 .spider-center__img {
-  width: 72px;
-  height: 72px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
-  border-radius: 0;
-  filter: brightness(0) invert(1);        /* Render white on orange */
+  border-radius: 50%;
+  filter: none;                            /* Mostrar colores reales del logo */
   display: block;
   position: relative;
   z-index: 1;
+  drop-shadow: 0 2px 12px rgba(232,87,26,0.4);
 }
 
 /* Pulse ring animation */
