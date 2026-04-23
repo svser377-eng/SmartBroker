@@ -1218,6 +1218,25 @@ p { color: var(--color-muted); }
 .social-btn:hover { border-color: var(--accent); color: var(--accent-alt); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .social-btn--sm { width: 36px; height: 36px; font-size: 0.7rem; }
 
+/* ── Brand colors per social network ── */
+.social-btn--linkedin  { color: #0a66c2; border-color: #0a66c2; }
+.social-btn--linkedin:hover  { background: #0a66c2; color: #fff; border-color: #0a66c2; }
+
+.social-btn--instagram { color: #e1306c; border-color: #e1306c; }
+.social-btn--instagram:hover { background: linear-gradient(135deg,#f58529,#dd2a7b,#515bd4); color: #fff; border-color: transparent; }
+
+.social-btn--facebook  { color: #1877f2; border-color: #1877f2; }
+.social-btn--facebook:hover  { background: #1877f2; color: #fff; border-color: #1877f2; }
+
+.social-btn--whatsapp  { color: #25d366; border-color: #25d366; }
+.social-btn--whatsapp:hover  { background: #25d366; color: #fff; border-color: #25d366; }
+
+/* Footer overrides keep brand colors */
+.footer__brand .social-btn--linkedin  { color: #0a66c2; border-color: rgba(10,102,194,.4); }
+.footer__brand .social-btn--instagram { color: #e1306c; border-color: rgba(225,48,108,.4); }
+.footer__brand .social-btn--facebook  { color: #1877f2; border-color: rgba(24,119,242,.4); }
+.footer__brand .social-btn--whatsapp  { color: #25d366; border-color: rgba(37,211,102,.4); }
+
 /* Form */
 .contact__form-wrap {
   background: var(--bg);

@@ -274,7 +274,7 @@ export const Views = {
 
           <div class="contact__social" role="list" aria-label="Redes sociales">
             ${contact.social.map(s => `
-              <a href="${s.href}" class="social-btn" role="listitem" aria-label="${s.name}" rel="noopener noreferrer">
+              <a href="${s.href}" class="social-btn ${s.cls || ''}" role="listitem" aria-label="${s.name}" rel="noopener noreferrer">
                 ${s.icon}
               </a>
             `).join("")}
@@ -358,7 +358,7 @@ export const Views = {
           <p>${brand.description} · ${brand.tagline}</p>
           <div class="footer__social" aria-label="Redes sociales">
             ${contact.social.map(s => `
-              <a href="${s.href}" class="social-btn social-btn--sm" aria-label="${s.name}" rel="noopener noreferrer">${s.icon}</a>
+              <a href="${s.href}" class="social-btn social-btn--sm ${s.cls || ''}" aria-label="${s.name}" rel="noopener noreferrer">${s.icon}</a>
             `).join("")}
           </div>
         </div>

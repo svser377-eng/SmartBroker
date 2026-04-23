@@ -275,10 +275,10 @@ const AppModel = {
       { icon: "🕐", label: "Horario",   value: "Lun–Vie: 8am–6pm" },
     ],
     social: [
-      { name: "LinkedIn",  href: "#", icon: "in" },
-      { name: "Instagram", href: "#", icon: "ig" },
-      { name: "Facebook",  href: "#", icon: "fb" },
-      { name: "WhatsApp",  href: "#", icon: "wa" },
+      { name: "LinkedIn",  href: "#", icon: "in", cls: "social-btn--linkedin"  },
+      { name: "Instagram", href: "#", icon: "ig", cls: "social-btn--instagram" },
+      { name: "Facebook",  href: "#", icon: "fb", cls: "social-btn--facebook"  },
+      { name: "WhatsApp",  href: "#", icon: "wa", cls: "social-btn--whatsapp"  },
     ],
   },
 
