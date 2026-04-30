@@ -1172,7 +1172,6 @@ p { color: var(--color-muted); }
   position: relative;
   z-index: 1;
   drop-shadow: 0 2px 12px rgba(232,87,26,0.4);
-  mix-blend-mode: lighten;
 }
 
 /* Pulse ring animation */
@@ -1196,7 +1195,7 @@ p { color: var(--color-muted); }
   width: 62px;
   height: 62px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.16);
+  background: rgba(10, 5, 0, 0.85);
   border: 2px solid var(--accent);
   cursor: pointer;
   display: flex;
@@ -1251,7 +1250,7 @@ p { color: var(--color-muted); }
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.16);
+  background: rgba(8, 3, 0, 0.88);
   border: 1.5px solid rgba(232, 87, 26, 0.55);
   cursor: pointer;
   display: flex;
