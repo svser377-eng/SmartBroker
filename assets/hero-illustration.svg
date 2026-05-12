@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Ilustración hero de SmartBroker">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8571A" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#2D2D2D" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="32" fill="url(#grad)"/>
+  <g opacity="0.85">
+    <circle cx="200" cy="170" r="70" fill="#fff" opacity="0.2"/>
+    <circle cx="340" cy="210" r="50" fill="#fff" opacity="0.15"/>
+    <path d="M 140 260 C 200 230 290 310 330 240" stroke="#fff" stroke-width="12" fill="none" opacity="0.18"/>
+  </g>
+  <text x="50%" y="55%" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="42" fill="#fff" opacity="0.9">Tu seguridad</text>
+  <text x="50%" y="68%" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="22" fill="#fff" opacity="0.7">Protegemos lo que más importa</text>
+</svg>
