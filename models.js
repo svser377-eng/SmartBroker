@@ -303,7 +303,8 @@ const AppModel = {
     ],
     social: [
       { name: "LinkedIn",  href: "#", icon: "in", cls: "social-btn--linkedin"  },
-      { name: "Instagram", href: "https://www.instagram.com/smart.broker.ec/", icon: "ig", cls: "social-btn--instagram" },
+      /*{ name: "Instagram", href: "https://www.instagram.com/smart.broker.ec/", icon: "ig", cls: "social-btn--instagram" },*/
+      { name: "Instagram", href: "https://www.instagram.com/smart.broker.ec/", icon: "ig", cls: "social-btn--instagram", target: "_blank", rel: "noopener noreferrer" },
       { name: "Facebook",  href: "https://www.facebook.com/smart.broker.ec/", icon: "fb", cls: "social-btn--facebook"  },
       { name: "WhatsApp",  href: "#", icon: "wa", cls: "social-btn--whatsapp"  },
       { name: "Tik-tok",  href: "https://www.tiktok.com/@smart.broker.ec", icon: "tt", cls: "social-btn--tik-tok"  },
