@@ -306,6 +306,7 @@ const AppModel = {
       { name: "Instagram", href: "https://www.instagram.com/smart.broker.ec/", icon: "ig", cls: "social-btn--instagram" },
       { name: "Facebook",  href: "https://www.facebook.com/smart.broker.ec/", icon: "fb", cls: "social-btn--facebook"  },
       { name: "WhatsApp",  href: "#", icon: "wa", cls: "social-btn--whatsapp"  },
+      { name: "Tik-tok",  href: "https://www.tiktok.com/@smart.broker.ec", icon: "wa", cls: "social-btn--tik-tok"  },
     ],
   },
 
