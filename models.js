@@ -33,10 +33,10 @@ const AppModel = {
     {
       label: "Servicios", href: "#servicios",
       dropdown: [
-        { label: "Seguro de Vida",     href: "#vida",        icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M10 17s-7-4.35-7-9a5 5 0 0110 0 5 5 0 0110 0c0 4.65-7 9-7 9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10h2l1.5-2.5 2 5 1.5-2.5H16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
-        { label: "Seguro de Salud",    href: "#salud",       icon: `<svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>` },
-        { label: "Seguro Vehicular",   href: "#vehicular",   icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M3 12l2-5h10l2 5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="2" y="12" width="16" height="4" rx="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/></svg>` },
-        { label: "Seguro Empresarial", href: "#empresarial", icon: `<svg viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M7 7V5a2 2 0 014 0v2" stroke="currentColor" stroke-width="1.5"/><path d="M3 11h14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>` },
+        { label: "Vehicular",              href: "#vehicular",  icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M3 12l2-5h10l2 5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="2" y="12" width="16" height="4" rx="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/></svg>` },
+        { label: "Asistencia Médica",      href: "#salud",      icon: `<svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>` },
+        { label: "Empresas de Seguridad",  href: "#seguridad",  icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M10 2l8 3v6c0 5-4 8.5-8 10C6 19.5 2 16 2 11V5l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>` },
+        { label: "Individual / Empresarial", href: "#individuales", icon: `<svg viewBox="0 0 20 20" fill="none"><circle cx="8" cy="6" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 18c0-3.3 2.7-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="12" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M14 15h3M15.5 13v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>` },
       ]
     },
     { label: "Nosotros",  href: "#nosotros" },
@@ -296,7 +296,7 @@ const AppModel = {
     headline: "¿Listo para proteger lo que más importa?",
     subtext:  "Completa el formulario y un asesor te contactará en menos de 24 horas. Sin compromisos, sin presión.",
     info: [
-      { icon: "📍", label: "Dirección", value: "Gaspar de Escalona N38-39 y Av. Juan José, Edificio Mayfair, 2do piso" },
+      { icon: "📍", label: "Dirección", value: "Av. Granda Centeno Oe5-50 y Vasco De Contreras Edificio Ikonus. PB. Oficina 3. Quito, Ecuador" },
       { icon: "📞", label: "Teléfono",  value: "099 866 1249" },
       { icon: "✉️", label: "Email",     value: "yordonez@smartbroker.com.ec" },
       { icon: "🕐", label: "Horario",   value: "Lun–Vie: 8am–6pm" },
@@ -318,10 +318,10 @@ const AppModel = {
       { label: "Contacto",  href: "#contacto",  desc: "Formulario y datos" },
     ],
     services: [
-      { label: "Seguro de Vida",        href: "#vida" },
-      { label: "Seguro de Salud",       href: "#salud" },
-      { label: "Seguro Vehicular",      href: "#vehicular" },
-      { label: "Seguro Empresarial",    href: "#empresarial" },
+      { label: "Vehicular",              href: "#vehicular" },
+      { label: "Asistencia Médica",      href: "#salud" },
+      { label: "Empresas de Seguridad",  href: "#seguridad" },
+      { label: "Individual / Empresarial", href: "#individuales" },
     ],
     legal: [
       { label: "Política de privacidad", href: "#" },
