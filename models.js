@@ -296,7 +296,7 @@ const AppModel = {
     headline: "¿Listo para proteger lo que más importa?",
     subtext:  "Completa el formulario y un asesor te contactará en menos de 24 horas. Sin compromisos, sin presión.",
     info: [
-      { icon: "📍", label: "Dirección", value: "Gaspar de Escalona N38-39 y Av. Juan José de Villalengua Piso 2" },
+      { icon: "📍", label: "Dirección", value: "Gaspar de Escalona N38-39 y Av. Juan José, Edificio Mayfair, 2do piso" },
       { icon: "📞", label: "Teléfono",  value: "099 866 1249" },
       { icon: "✉️", label: "Email",     value: "yordonez@smartbroker.com.ec" },
       { icon: "🕐", label: "Horario",   value: "Lun–Vie: 8am–6pm" },
