@@ -303,8 +303,8 @@ const AppModel = {
     ],
     social: [
       { name: "LinkedIn",  href: "#", icon: "in", cls: "social-btn--linkedin"  },
-      { name: "Instagram", href: "#", icon: "ig", cls: "social-btn--instagram" },
-      { name: "Facebook",  href: "#", icon: "fb", cls: "social-btn--facebook"  },
+      { name: "Instagram", href: "https://www.instagram.com/smart.broker.ec/", icon: "ig", cls: "social-btn--instagram" },
+      { name: "Facebook",  href: "https://www.facebook.com/smart.broker.ec/", icon: "fb", cls: "social-btn--facebook"  },
       { name: "WhatsApp",  href: "#", icon: "wa", cls: "social-btn--whatsapp"  },
     ],
   },
