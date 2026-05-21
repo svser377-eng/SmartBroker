@@ -233,39 +233,23 @@ export const Views = {
     </section>`;
   },
 
-  /* ─── ASEGURADORAS ALIADAS ─── */
+  /* ─── ASEGURADORAS ─── */
   renderAseguradoras() {
     /* Logos reales de aseguradoras aliadas */
     const logos = [
-      { src: "assets/aseguradoras/ASG-4.jpg",  alt: "Aseguradora aliada 1"  },
-      { src: "assets/aseguradoras/ASG-5.jpg",  alt: "Aseguradora aliada 2"  },
-      { src: "assets/aseguradoras/ASG-6.jpg",  alt: "Aseguradora aliada 3"  },
-      { src: "assets/aseguradoras/ASG-7.jpg",  alt: "Aseguradora aliada 4"  },
-      { src: "assets/aseguradoras/ASG-8.jpg",  alt: "Aseguradora aliada 5"  },
-      { src: "assets/aseguradoras/ASG-9.jpg",  alt: "Aseguradora aliada 6"  },
-      { src: "assets/aseguradoras/ASG-10.jpg", alt: "Aseguradora aliada 7"  },
-      { src: "assets/aseguradoras/ASG-11.jpg", alt: "Aseguradora aliada 8"  },
-      { src: "assets/aseguradoras/ASG-12.jpg", alt: "Aseguradora aliada 9"  },
-      { src: "assets/aseguradoras/ASG-13.jpg", alt: "Aseguradora aliada 10" },
-      { src: "assets/aseguradoras/ASG-14.jpg", alt: "Aseguradora aliada 11" },
-      { src: "assets/aseguradoras/ASG-15.jpg", alt: "Aseguradora aliada 12" },
-      { src: "assets/aseguradoras/ASG-16.jpg", alt: "Aseguradora aliada 13" },
-      { src: "assets/aseguradoras/ASG-17.jpg", alt: "Aseguradora aliada 14" },
-      { src: "assets/aseguradoras/ASG-18.jpg", alt: "Aseguradora aliada 15" },
-      { src: "assets/aseguradoras/ASG-19.jpg", alt: "Aseguradora aliada 16" },
-      { src: "assets/aseguradoras/ASG-20.jpg", alt: "Aseguradora aliada 17" },
-      { src: "assets/aseguradoras/ASG-21.jpg", alt: "Aseguradora aliada 18" },
-      { src: "assets/aseguradoras/ASG-22.jpg", alt: "Aseguradora aliada 19" },
-      { src: "assets/aseguradoras/ASG-23.jpg", alt: "Aseguradora aliada 20" },
-      { src: "assets/aseguradoras/ASG-24.jpg", alt: "Aseguradora aliada 21" },
-      { src: "assets/aseguradoras/ASG-25.jpg", alt: "Aseguradora aliada 22" },
-      { src: "assets/aseguradoras/ASG-26.jpg", alt: "Aseguradora aliada 23" },
-      { src: "assets/aseguradoras/ASG-27.jpg", alt: "Aseguradora aliada 24" },
-      { src: "assets/aseguradoras/ASG-28.jpg", alt: "Aseguradora aliada 25" },
-      { src: "assets/aseguradoras/ASG-29.jpg", alt: "Aseguradora aliada 26" },
-    ];
+      "Aseguradora_1.PNG","Aseguradora_2.PNG","Aseguradora_3.PNG","Aseguradora_4.PNG",
+      "Aseguradora_5.PNG","Aseguradora_6.PNG","Aseguradora_7.PNG","Aseguradora_8.PNG",
+      "Aseguradora_9.PNG","Aseguradora_10.PNG","Aseguradora_11.PNG","Aseguradora_12.PNG",
+      "Aseguradora_13.PNG","Aseguradora_14.PNG","Aseguradora_15.PNG","Aseguradora_16.PNG",
+      "Aseguradora_17.PNG","Aseguradora_18.PNG","Aseguradora_19.PNG","Aseguradora_20.PNG",
+      "Aseguradora_21.PNG","Aseguradora_22.PNG","Aseguradora_23.PNG","Aseguradora_24.PNG",
+      "Aseguradora_25.PNG","Aseguradora_26.PNG","Aseguradora_27.PNG",
+    ].map((file, i) => ({
+      src: `assets/aseguradoras/${file}`,
+      alt: `Aseguradora aliada ${i + 1}`,
+    }));
 
-    /* Duplicamos para el loop infinito CSS */
+    /* Duplicamos el array para el loop infinito CSS */
     const allLogos = [...logos, ...logos];
 
     return `
@@ -282,7 +266,7 @@ export const Views = {
       <div class="aseg-marquee" aria-label="Carrusel de aseguradoras aliadas" role="region">
         <div class="aseg-track" id="asegTrack">
           ${allLogos.map((logo, i) => `
-            <div class="aseg-item" aria-hidden="${i >= 22}">
+            <div class="aseg-item" aria-hidden="${i >= 27}">
               <img src="${logo.src}" alt="${logo.alt}" loading="lazy" width="120" height="72" />
             </div>
           `).join("")}
