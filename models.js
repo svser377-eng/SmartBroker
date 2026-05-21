@@ -117,6 +117,11 @@ const AppModel = {
 
   /* ───────── DESCRIPCIONES DE SERVICIOS ───────── */
   serviceInfo: {
+    "seguridad": {
+      title: "Empresas de Seguridad",
+      desc: "Soluciones especializadas para empresas del sector de seguridad privada. Cubrimos las operaciones, el personal en campo y la responsabilidad civil frente a clientes y terceros, adaptándonos a las exigencias regulatorias del sector.",
+      features: ["Responsabilidad civil de operaciones", "Accidentes personales del personal", "Infidelidad y deshonestidad de empleados", "Vehículos y equipos operativos", "RC patronal"],
+    },
     /* Servicios de la sección principal */
     "vida": {
       title: "Seguro de Vida",
@@ -175,26 +180,6 @@ const AppModel = {
   /* ───────── SERVICES ───────── */
   services: [
     {
-      id: "vida",
-      icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M24 42s-17-10.5-17-22a12 12 0 0124 0 12 12 0 0124 0C41 31.5 24 42 24 42z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M17 24h6l3-5 4 10 3-5h5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>`,
-      title: "Seguro de Vida",
-      desc:  "Garantiza el bienestar de tu familia ante cualquier eventualidad. Planes flexibles que se adaptan a tu ciclo de vida.",
-      features: ["Cobertura por fallecimiento", "Invalidez total y parcial", "Enfermedades graves"],
-    },
-    {
-      id: "salud",
-      icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="8" width="32" height="32" rx="6" stroke="currentColor" stroke-width="2.5"/>
-        <path d="M24 16v16M16 24h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>`,
-      title: "Seguro de Salud",
-      desc:  "Acceso a la mejor atención médica sin preocuparte por los costos. Cobertura nacional e internacional.",
-      features: ["Hospitalización y cirugías", "Medicamentos recetados", "Red médica premium"],
-    },
-    {
       id: "vehicular",
       icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 28l4-12h28l4 12" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
@@ -203,44 +188,42 @@ const AppModel = {
         <circle cx="34" cy="38" r="4" stroke="currentColor" stroke-width="2.5"/>
         <path d="M18 38h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>`,
-      title: "Seguro Vehicular",
-      desc:  "Tu vehículo protegido ante accidentes, robos y daños a terceros. Asistencia en carretera 24/7.",
-      features: ["Pérdida total y parcial", "Responsabilidad civil", "Asistencia en ruta"],
+      title: "Vehicular",
+      desc:  "Tu vehículo protegido ante accidentes, robos y daños a terceros. Asistencia en carretera 24/7 con talleres autorizados en todo el país.",
+      features: ["Pérdida total y parcial", "Responsabilidad civil ampliada", "Asistencia en ruta 24/7", "Vehículo de reemplazo"],
     },
     {
-      id: "empresarial",
+      id: "salud",
       icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="16" width="32" height="26" rx="3" stroke="currentColor" stroke-width="2.5"/>
-        <path d="M16 16V12a2 2 0 012-2h12a2 2 0 012 2v4" stroke="currentColor" stroke-width="2.5"/>
-        <path d="M8 27h32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M20 27v4M28 27v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <rect x="8" y="8" width="32" height="32" rx="6" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M24 16v16M16 24h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
       </svg>`,
-      title: "Seguro Empresarial",
-      desc:  "Soluciones integrales para proteger tu negocio, activos, empleados y responsabilidad frente a terceros.",
-      features: ["Todo riesgo empresarial", "Responsabilidad civil", "Cobertura para empleados"],
+      title: "Asistencia Médica",
+      desc:  "Acceso a la mejor atención médica sin preocuparte por los costos. Cobertura nacional e internacional con red médica premium.",
+      features: ["Hospitalización y cirugías", "Consultas ambulatorias", "Medicamentos recetados", "Emergencias en el exterior"],
     },
     {
-      id: "pymes",
+      id: "seguridad",
       icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6" y="18" width="36" height="24" rx="3" stroke="currentColor" stroke-width="2.5"/>
-        <path d="M14 18V14a2 2 0 012-2h16a2 2 0 012 2v4" stroke="currentColor" stroke-width="2.5"/>
-        <rect x="18" y="28" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="2"/>
-        <path d="M6 30h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 4l18 7v13c0 11-8 20-18 24C14 44 6 35 6 24V11l18-7z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="24" cy="22" r="5" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M16 36c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
       </svg>`,
-      title: "Seguros PYMES",
-      desc:  "Paquetes diseñados para pequeñas y medianas empresas que necesitan protección completa sin costos exorbitantes.",
-      features: ["Multirriesgo empresarial", "RC patronal", "Equipos y maquinaria"],
+      title: "Empresas de Seguridad",
+      desc:  "Soluciones especializadas para empresas del sector de seguridad privada: protección de operaciones, personal y responsabilidad frente a terceros.",
+      features: ["Responsabilidad civil de operaciones", "Accidentes personales del personal", "Infidelidad y deshonestidad", "Equipos y vehículos operativos"],
     },
     {
       id: "individuales",
       icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="16" r="9" stroke="currentColor" stroke-width="2.5"/>
-        <path d="M8 42c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M30 36l3 3 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="18" cy="14" r="8" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M4 40c0-7.7 6.3-14 14-14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="28" y="26" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M32 34h8M36 30v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>`,
-      title: "Planes Individuales",
-      desc:  "Protección personalizada para ti y tu familia: vida, salud y accidentes con coberturas flexibles a tu medida.",
-      features: ["Accidentes personales", "Vida individual", "Enfermedad grave"],
+      title: "Individual / Empresarial",
+      desc:  "Planes flexibles tanto para personas como para empresas de todos los tamaños. Un solo asesor para todas tus necesidades de protección.",
+      features: ["Vida e invalidez individual", "Multirriesgo empresarial", "RC patronal y de explotación", "Programas colectivos para empleados"],
     },
   ],
 
@@ -350,3 +333,6 @@ const AppModel = {
 };
 
 export default AppModel;
+
+/* Exponer globalmente para acceso desde controllers */
+window.AppModel = AppModel;
