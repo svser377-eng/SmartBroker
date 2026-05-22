@@ -30,15 +30,7 @@ const AppModel = {
   /* ───────── NAV ───────── */
   nav: [
     { label: "Inicio",    href: "#inicio" },
-    {
-      label: "Servicios", href: "#servicios",
-      dropdown: [
-        { label: "Vehicular",              href: "#vehicular",  icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M3 12l2-5h10l2 5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="2" y="12" width="16" height="4" rx="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="16" r="1.5" stroke="currentColor" stroke-width="1.3"/></svg>` },
-        { label: "Asistencia Médica",      href: "#salud",      icon: `<svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>` },
-        { label: "Empresas de Seguridad",  href: "#seguridad",  icon: `<svg viewBox="0 0 20 20" fill="none"><path d="M10 2l8 3v6c0 5-4 8.5-8 10C6 19.5 2 16 2 11V5l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>` },
-        { label: "Individual / Empresarial", href: "#individuales", icon: `<svg viewBox="0 0 20 20" fill="none"><circle cx="8" cy="6" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 18c0-3.3 2.7-6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="12" y="11" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M14 15h3M15.5 13v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>` },
-      ]
-    },
+    { label: "Servicios", href: "#servicios" },
     { label: "Nosotros",  href: "#nosotros" },
     { label: "Contacto",  href: "#contacto" },
   ],
@@ -232,7 +224,7 @@ const AppModel = {
     eyebrow: "Sobre SmartBroker",
     headline: "Más que un seguro,<br>una promesa de respaldo.",
     body: [
-      "Somos una corredora de seguros independiente con más de 15 años en el mercado, comprometida con ofrecer asesoría honesta, soluciones personalizadas y acompañamiento real en los momentos que más importan.",
+      "Somos una corredora de seguros independiente con más de 9 años en el mercado, comprometida con ofrecer asesoría honesta, soluciones personalizadas y acompañamiento real en los momentos que más importan.",
       "No trabajamos para las aseguradoras; trabajamos para ti. Nuestro modelo independiente nos permite acceder a las mejores pólizas del mercado y negociar en nombre de nuestros clientes.",
     ],
     values: [
@@ -302,12 +294,12 @@ const AppModel = {
       { icon: "🕐", label: "Horario",   value: "Lun–Vie: 8am–6pm" },
     ],
     social: [
-      { name: "LinkedIn",  href: "#", icon: "in", cls: "social-btn--linkedin"  },
-      /*{ name: "Instagram", href: "https://www.instagram.com/smart.broker.ec/", icon: "ig", cls: "social-btn--instagram" },*/
+      { name: "LinkedIn",  href: "https://www.linkedin.com/company/smartbroker-ec/", icon: "in", cls: "social-btn--linkedin", target: "_blank", rel: "noopener noreferrer" },
       { name: "Instagram", href: "https://www.instagram.com/smart.broker.ec/", icon: "ig", cls: "social-btn--instagram", target: "_blank", rel: "noopener noreferrer" },
-      { name: "Facebook",  href: "https://www.facebook.com/smart.broker.ec/", icon: "fb", cls: "social-btn--facebook"  },
-      { name: "WhatsApp",  href: "#", icon: "wa", cls: "social-btn--whatsapp"  },
-      { name: "Tik-tok",  href: "https://www.tiktok.com/@smart.broker.ec", icon: "tt", cls: "social-btn--tik-tok"  },
+      { name: "Facebook",  href: "https://www.facebook.com/smart.broker.ec/", icon: "fb", cls: "social-btn--facebook", target: "_blank", rel: "noopener noreferrer"  },
+      { name: "WhatsApp",  href: "https://wa.me/593998661249", icon: "wa", cls: "social-btn--whatsapp", target: "_blank", rel: "noopener noreferrer" },
+      { name: "Tik-tok",  href: "https://www.tiktok.com/@smart.broker.ec", icon: "tt", cls: "social-btn--tik-tok", target: "_blank", rel: "noopener noreferrer"  },
+
     ],
   },
 

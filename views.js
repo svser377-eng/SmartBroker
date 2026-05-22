@@ -33,22 +33,7 @@ export const Views = {
         <!-- DESKTOP NAV -->
         <nav class="header__nav" aria-label="Navegación principal">
           <ul role="list">
-            ${nav.map(item => item.dropdown ? `
-              <li class="nav-item--dropdown">
-                <a href="${item.href}" class="nav-link nav-link--dropdown" aria-haspopup="true">
-                  ${item.label}
-                  <svg class="nav-caret" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </a>
-                <div class="nav-submenu" role="menu">
-                  ${item.dropdown.map(sub => `
-                    <a href="${sub.href}" class="nav-submenu__item" role="menuitem">
-                      <span class="nav-submenu__icon" aria-hidden="true">${sub.icon}</span>
-                      <span class="nav-submenu__label">${sub.label}</span>
-                    </a>
-                  `).join("")}
-                </div>
-              </li>
-            ` : `
+            ${nav.map(item => `
               <li><a href="${item.href}" class="nav-link">${item.label}</a></li>
             `).join("")}
           </ul>
@@ -64,16 +49,7 @@ export const Views = {
       <!-- MOBILE MENU -->
       <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menú móvil">
         <ul role="list">
-          ${nav.map(item => item.dropdown ? `
-            <li>
-              <span class="mobile-link mobile-link--group">${item.label}</span>
-              <ul class="mobile-submenu" role="list">
-                ${item.dropdown.map(sub => `
-                  <li><a href="${sub.href}" class="mobile-link mobile-link--sub">${sub.icon} ${sub.label}</a></li>
-                `).join("")}
-              </ul>
-            </li>
-          ` : `
+          ${nav.map(item => `
             <li><a href="${item.href}" class="mobile-link">${item.label}</a></li>
           `).join("")}
         </ul>
@@ -205,7 +181,7 @@ export const Views = {
               </div>
             </div>
             <div class="about__accent-card">
-              <strong>15+</strong>
+              <strong>9+</strong>
               <span>Años protegiendo<br>lo que importa</span>
             </div>
           </div>
@@ -310,7 +286,7 @@ export const Views = {
 
           <div class="contact__social" role="list" aria-label="Redes sociales">
             ${contact.social.map(s => `
-              <a href="${s.href}" class="social-btn ${s.cls || ''}" role="listitem" aria-label="${s.name}" rel="noopener noreferrer">
+              <a href="${s.href}" class="social-btn ${s.cls || ''}" role="listitem" aria-label="${s.name}" target="_blank" rel="noopener noreferrer">
                 ${s.icon}
               </a>
             `).join("")}

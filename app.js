@@ -35,7 +35,6 @@ const App = {
       Views.renderFooter(brand, sitemap, contact),
       Views.renderDataModal(),
       Views.renderServiceModal(),
-      Views.renderServiceModal(),
     ].join("");
 
     // ── Hacer AppModel disponible globalmente para controllers ──
