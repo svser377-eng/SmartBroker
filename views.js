@@ -175,10 +175,7 @@ export const Views = {
         <div class="about__visual reveal" aria-hidden="true">
           <div class="about__img-wrap">
             <div class="about__img-placeholder">
-              <div class="ap-inner">
-                <svg viewBox="0 0 80 80" fill="none"><rect width="80" height="80" rx="16" fill="var(--accent)" opacity=".12"/><path d="M40 20c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zM20 60c0-11 9-20 20-20s20 9 20 20" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/></svg>
-                <p>Foto del equipo</p>
-              </div>
+              <img src="assets/Imagen_Equipo.jpeg" alt="Equipo SmartBroker" class="about__team-img" />
             </div>
             <div class="about__accent-card">
               <strong>9+</strong>
