@@ -312,10 +312,10 @@ export const Views = {
               <label for="cf-service">Servicio de interés</label>
               <select id="cf-service" name="service">
                 <option value="">Seleccionar…</option>
-                <option value="vida">Seguro de Vida</option>
-                <option value="salud">Seguro de Salud</option>
-                <option value="vehicular">Seguro Vehicular</option>
-                <option value="empresarial">Seguro Empresarial</option>
+                <option value="Vehicular">Seguro de Vehiculos</option>
+                <option value="Asistencia Médica">Seguro de Salud</option>
+                <option value="Empresas de Seguridad">Empresas de Seguridad</option>
+                <option value="Individual/Empresarial">Seguro Empresarial</option>
               </select>
             </div>
             <div class="form-group form-group--full">
