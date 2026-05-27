@@ -709,9 +709,16 @@ const Controllers = {
       descEl.innerHTML = `<p class="modal-section-title">Descripción</p><p>${svc.desc}</p>`;
 
       if (svc.features && svc.features.length) {
+        const SUBTITLES = ["Seguros Individuales", "Seguros Empresariales", "Vida y Ahorro", "Vida y ahorro"];
+        const items = svc.features.map(f => {
+          if (SUBTITLES.some(s => s.toLowerCase() === f.toLowerCase())) {
+            return `</ul><p class="modal-feat-subtitle">${f}</p><ul>`;
+          }
+          return `<li>${f}</li>`;
+        }).join("");
         featEl.innerHTML = `
-          <p class="modal-section-title">Coberturas principales</p>
-          <ul>${svc.features.map(f => `<li>${f}</li>`).join("")}</ul>`;
+          <p class="modal-section-title">Portafolio Integral de Seguros</p>
+          <ul>${items}</ul>`.replace(/<ul>\s*<\/ul>/g, "");
       } else {
         featEl.innerHTML = "";
       }

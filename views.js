@@ -313,6 +313,7 @@ export const Views = {
                 <option value="Asistencia Médica">Seguro de Salud</option>
                 <option value="Empresas de Seguridad">Empresas de Seguridad</option>
                 <option value="Individual/Empresarial">Seguro Empresarial</option>
+                <option value="Otros">Otros</option>
               </select>
             </div>
             <div class="form-group form-group--full">

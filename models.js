@@ -144,7 +144,7 @@ const AppModel = {
     "individuales": {
       title: "Planes Individuales y Empresariales",
       desc: "En Smartbroker protegemos lo que más valoras con soluciones integrales en seguros para personas y empresas. Salud, vida, vehículos, hogar y coberturas corporativas con el respaldo y la asesoría que necesitas.",
-      features: ["Seguros Individuales", "Asistencia Médica  Nacional e Internacional", "Gastos Mayores", "Vida y ahorro", "Vehiculos", "Hogar", "Accidentes Personales", "Viajes", "Seguros Empresariales", "Salud Corporativa", "Vehiculo y FLotas", "Responsabilidad Civil", "Multirriesgo Empresarial", "Transporte", "Todo Riesgo Construcción", "Fianzas", "Riesgos Laborales", "Vida y ahorro", "Beneficios para Colaboradores", "Accidentes Personales Colectivos", "Casco Aéreo / Maritimo"],
+      features: ["Seguros Individuales", "Asistencia Médica  Nacional e Internacional", "Gastos Mayores", "Vida y ahorro", "Vehículos", "Hogar", "Accidentes Personales", "Viajes", "Seguros Empresariales", "Salud Corporativa", "Vehículo y FLotas", "Responsabilidad Civil", "Multirriesgo Empresarial", "Transporte", "Todo Riesgo Construcción", "Fianzas", "Riesgos Laborales", "Vida y ahorro", "Beneficios para Colaboradores", "Accidentes Personales Colectivos", "Casco Aéreo / Marítimo"],
     },
     /* Spider / menú araña */
     "personas-vehiculos":  { title: "Vehículos",             desc: "Creamos un seguro acorde a tus necesidades, pensando en ti y tu familia para que viajen tranquilos, brindando la mejor protección.", features: ["Todo Riesgo","Pérdida parcial","Pérdida total","Choques","Responsabilidad civil(daños a terceros)","Robo","Auto Sustituto","Amparo patrimonial"] },
@@ -225,8 +225,10 @@ const AppModel = {
     eyebrow: "Sobre SmartBroker",
     headline: "Más que un seguro,<br>una promesa de respaldo.",
     body: [
-      "Somos una corredora de seguros independiente con más de 9 años en el mercado, comprometida con ofrecer asesoría honesta, soluciones personalizadas y acompañamiento real en los momentos que más importan.",
-      "No trabajamos para las aseguradoras; trabajamos para ti. Nuestro modelo independiente nos permite acceder a las mejores pólizas del mercado y negociar en nombre de nuestros clientes.",
+      "Somos una Agencia Productora de Seguros, especializada en brindar soluciones de protección para personas, familias y empresas.",
+      "Ofrecemos una asesoría cercana, transparente y estratégica, acompañando a cada cliente antes, durante y después de la contratación de su póliza.",
+      "No trabajamos para una sola aseguradora; trabajamos para proteger tus intereses, analizando las mejores opciones del mercado para encontrar coberturas competitivas y alineadas a tus necesidades.",
+      "Construimos relaciones basadas en confianza, respaldo y tranquilidad.",
     ],
     values: [
       {
@@ -242,7 +244,7 @@ const AppModel = {
       {
         icon: `<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.8"/><path d="M16 10v7l4 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
         title: "Experiencia",
-        desc: "9+ años asesorando con criterio y conocimiento.",
+        desc: "Asesorando con criterio, conocimiento y compromiso en cada solución de protección.",
       },
       {
         icon: `<svg viewBox="0 0 32 32" fill="none"><path d="M4 20l7-7 5 5 7-9 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
