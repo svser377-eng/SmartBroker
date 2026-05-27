@@ -34,10 +34,10 @@ export const Views = {
         <nav class="header__nav" aria-label="Navegación principal">
           <ul role="list">
             ${nav.map(item => `
-              <li><a href="${item.href}" class="nav-link">${item.label}</a></li>
+              <li><a href="${item.href}" class="nav-link"${item.target ? ` target="${item.target}" rel="noopener noreferrer"` : ""}>${item.label}</a></li>
             `).join("")}
           </ul>
-          <a href="#contacto" class="btn btn--sm btn--primary">Solicitar asesoría</a>
+          <a href="https://api.whatsapp.com/send/?phone=593998661249&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn--sm btn--primary">Solicitar asesoría</a>
         </nav>
 
         <!-- HAMBURGER -->
@@ -50,10 +50,10 @@ export const Views = {
       <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menú móvil">
         <ul role="list">
           ${nav.map(item => `
-            <li><a href="${item.href}" class="mobile-link">${item.label}</a></li>
+            <li><a href="${item.href}" class="mobile-link"${item.target ? ` target="${item.target}" rel="noopener noreferrer"` : ""}>${item.label}</a></li>
           `).join("")}
         </ul>
-        <a href="#contacto" class="btn btn--primary mobile-cta">Solicitar asesoría</a>
+        <a href="https://api.whatsapp.com/send/?phone=593998661249&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn--primary mobile-cta">Solicitar asesoría</a>
       </div>
     </header>`;
   },
@@ -142,7 +142,7 @@ export const Views = {
       <div class="container">
         <div class="section-header reveal">
           <span class="eyebrow">Nuestros servicios</span>
-          <h2 id="services-heading">Soluciones para cada<br>etapa de tu vida</h2>
+          <h2 id="services-heading">Somos tu mejor <br>aliado de seguros</h2>
           <p class="section-desc">Cada póliza es diseñada a medida, con asesoría personalizada y acceso a las mejores aseguradoras del mercado.</p>
         </div>
 
@@ -153,7 +153,7 @@ export const Views = {
               <h3 id="svc-${s.id}">${s.title}</h3>
               <p>${s.desc}</p>
               <ul class="service-card__features" role="list">
-                ${s.features.map(f => `<li>${f}</li>`).join("")}
+                ${(s.features || []).map(f => `<li>${f}</li>`).join("")}
               </ul>
               <a href="#" class="service-card__cta" data-svc="${s.id}" aria-label="Ver detalles de ${s.title}" aria-haspopup="dialog">
                 Ver detalles
@@ -177,10 +177,7 @@ export const Views = {
             <div class="about__img-placeholder">
               <img src="assets/Imagen_Equipo.jpeg" alt="Equipo SmartBroker" class="about__team-img" />
             </div>
-            <div class="about__accent-card">
-              <strong>9+</strong>
-              <span>Años protegiendo<br>lo que importa</span>
-            </div>
+            
           </div>
         </div>
 
@@ -323,6 +320,17 @@ export const Views = {
               <textarea id="cf-message" name="message" rows="4" placeholder="Cuéntanos qué necesitas…" required aria-required="true"></textarea>
               <span class="form-error" id="err-message" role="alert" aria-live="polite"></span>
             </div>
+            <div class="form-group form-group--full">
+              <label for="cf-attach">Adjunto <span class="form-label-hint">(opcional · PDF, JPG, PNG · máx. 500 KB)</span></label>
+              <div class="file-input-wrapper">
+                <input type="file" id="cf-attach" name="attach" accept=".pdf,.jpg,.jpeg,.png" aria-describedby="err-attach"/>
+                <label for="cf-attach" class="file-input-label" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 3v10M6 9l4-4 4 4"/><path d="M4 15h12" stroke-linecap="round"/></svg>
+                  <span id="file-name-display">Seleccionar archivo…</span>
+                </label>
+                <span class="form-error" id="err-attach" role="alert" aria-live="polite"></span>
+              </div>
+            </div>
             <button type="submit" class="btn btn--primary btn--lg btn--block" id="form-submit">
               <span id="btn-text">Enviar mensaje</span>
               <span id="btn-loading" hidden aria-hidden="true">
@@ -364,7 +372,7 @@ export const Views = {
             <span class="logo-text">${brand.logo.text}</span>
             `}
           </a>
-          <p>${brand.description} · ${brand.tagline}</p>
+
           <div class="footer__social" aria-label="Redes sociales">
             ${contact.social.map(s => `
               <a href="${s.href}" class="social-btn social-btn--sm ${s.cls || ''}" aria-label="${s.name}" rel="noopener noreferrer">${s.icon}</a>
@@ -445,7 +453,7 @@ export const Views = {
         <div class="modal__header">
           <div class="modal__header-left">
             <div class="modal__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <img src="assets/sello-smartbroker-white.png" alt="SmartBroker" style="width:36px;height:36px;object-fit:contain;" />
             </div>
             <div>
               <div class="modal__title" id="modal-title">Política de Protección de Datos Personales</div>
@@ -623,7 +631,7 @@ export const Views = {
         <div class="modal__header svc-modal__header">
           <div class="modal__header-left">
             <div class="modal__icon svc-modal__icon" id="svcIcon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <img src="assets/sello-smartbroker-white.png" alt="SmartBroker" style="width:36px;height:36px;object-fit:contain;" />
             </div>
             <div>
               <div class="modal__title" id="svc-modal-title">Servicio</div>
@@ -666,7 +674,7 @@ export const Views = {
 
         <!-- Footer -->
         <div class="modal__footer">
-          <p class="modal__footer-note">SmartBroker · Corredora de seguros certificada · RUC 1792783933001</p>
+          <p class="modal__footer-note">Smartbroker Cia Ltda </p>
           <div class="modal__footer-actions">
             <button class="btn btn--ghost modal-close-btn" id="svc-modal-close-bottom" aria-label="Cerrar">Cerrar</button>
           </div>

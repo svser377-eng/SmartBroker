@@ -119,6 +119,47 @@ const Controllers = {
   /* ═══════════════════════════════════════
      FORM CONTROLLER
   ═══════════════════════════════════════ */
+
+  /* ── Configuración EmailJS ── */
+  _emailConfig: {
+    serviceId:  "service_1cqahbr",
+    templateId: "template_ay0dj9f",
+    toEmail:    "yordonez@smartbroker.com.ec",
+  },
+
+  /* ── Rate limiting: 1 envío por email por día ── */
+  _canSendEmail(email) {
+    try {
+      const key  = "sb_last_" + btoa(email.toLowerCase().trim());
+      const last = localStorage.getItem(key);
+      if (!last) return true;
+      return (Date.now() - parseInt(last, 10)) > 86_400_000;
+    } catch { return true; }
+  },
+  _registerSend(email) {
+    try {
+      const key = "sb_last_" + btoa(email.toLowerCase().trim());
+      localStorage.setItem(key, String(Date.now()));
+    } catch { /* storage bloqueado */ }
+  },
+  _timeLeft(email) {
+    try {
+      const key  = "sb_last_" + btoa(email.toLowerCase().trim());
+      const ms   = 86_400_000 - (Date.now() - parseInt(localStorage.getItem(key) || "0", 10));
+      return `${Math.floor(ms / 3_600_000)}h ${Math.floor((ms % 3_600_000) / 60_000)}min`;
+    } catch { return "24h"; }
+  },
+
+  /* ── Leer archivo como base64 ── */
+  _fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result.split(",")[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  },
+
   initContactForm() {
     const form    = document.getElementById("contact-form");
     const submit  = document.getElementById("form-submit");
@@ -128,10 +169,26 @@ const Controllers = {
 
     if (!form) return;
 
-    /* ── Real-time validation ── */
+    /* ── Mostrar nombre del archivo seleccionado ── */
+    const fileInput   = document.getElementById("cf-attach");
+    const fileDisplay = document.getElementById("file-name-display");
+    fileInput?.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      if (!file) { fileDisplay.textContent = "Seleccionar archivo…"; return; }
+      if (file.size > 500 * 1024) {
+        document.getElementById("err-attach").textContent = "El archivo supera los 500 KB.";
+        fileInput.value = "";
+        fileDisplay.textContent = "Seleccionar archivo…";
+        return;
+      }
+      document.getElementById("err-attach").textContent = "";
+      fileDisplay.textContent = file.name;
+    });
+
+    /* ── Validación en tiempo real ── */
     const fields = form.querySelectorAll("input[required], textarea[required]");
     fields.forEach(field => {
-      field.addEventListener("blur", () => this._validateField(field));
+      field.addEventListener("blur",  () => this._validateField(field));
       field.addEventListener("input", () => {
         if (field.classList.contains("is-invalid")) this._validateField(field);
       });
@@ -140,29 +197,92 @@ const Controllers = {
     /* ── Submit ── */
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      /* Validar campos requeridos */
       let valid = true;
+      fields.forEach(f => { if (!this._validateField(f)) valid = false; });
+      if (!valid) { form.querySelector(".is-invalid")?.focus(); return; }
 
-      fields.forEach(field => {
-        if (!this._validateField(field)) valid = false;
-      });
-
-      if (!valid) {
-        const firstErr = form.querySelector(".is-invalid");
-        firstErr?.focus();
+      /* Validar tamaño del adjunto si existe */
+      const file = fileInput?.files[0];
+      if (file && file.size > 500 * 1024) {
+        document.getElementById("err-attach").textContent = "El archivo supera los 500 KB.";
+        fileInput.focus();
         return;
       }
 
-      /* Simulate async submission */
+      /* Rate limit */
+      const emailVal = document.getElementById("cf-email")?.value.trim() || "";
+      if (!this._canSendEmail(emailVal)) {
+        this._showFormError(form, `Ya enviaste un mensaje hoy. Podrás enviar otro en ${this._timeLeft(emailVal)}.`);
+        return;
+      }
+
+      /* Preparar parámetros */
       this._setFormLoading(true, btnText, btnLoad, submit);
-      await this._simulateSubmit();
-      this._setFormLoading(false, btnText, btnLoad, submit);
 
-      form.reset();
-      success.hidden = false;
-      success.focus();
+      const params = {
+        from_name:  document.getElementById("cf-name")?.value.trim()    || "",
+        from_email: emailVal,
+        phone:      document.getElementById("cf-phone")?.value.trim()   || "No indicado",
+        service:    document.getElementById("cf-service")?.value        || "No indicado",
+        message:    document.getElementById("cf-message")?.value.trim() || "",
+        to_email:   this._emailConfig.toEmail,
+        has_attach: "No",
+        attach_name: "",
+        attach_data: "",
+      };
 
-      setTimeout(() => { success.hidden = true; }, 6000);
+      /* Adjuntar archivo como base64 si existe */
+      if (file) {
+        try {
+          params.attach_data = await this._fileToBase64(file);
+          params.attach_name = file.name;
+          params.has_attach  = `Sí — ${file.name}`;
+        } catch {
+          params.has_attach = "Error al leer el archivo";
+        }
+      }
+
+      /* Enviar con EmailJS */
+      try {
+        await emailjs.send(
+          this._emailConfig.serviceId,
+          this._emailConfig.templateId,
+          params
+        );
+
+        this._registerSend(emailVal);
+        this._setFormLoading(false, btnText, btnLoad, submit);
+
+        form.reset();
+        if (fileDisplay) fileDisplay.textContent = "Seleccionar archivo…";
+        fields.forEach(f => f.classList.remove("is-valid", "is-invalid"));
+
+        success.hidden = false;
+        success.focus();
+        setTimeout(() => { success.hidden = true; }, 7000);
+
+      } catch (err) {
+        console.error("EmailJS error:", err);
+        this._setFormLoading(false, btnText, btnLoad, submit);
+        this._showFormError(form, "Error al enviar. Escríbenos a yordonez@smartbroker.com.ec");
+      }
     });
+  },
+
+  _showFormError(form, msg) {
+    let box = form.querySelector(".form-send-error");
+    if (!box) {
+      box = document.createElement("div");
+      box.className = "form-send-error";
+      box.setAttribute("role", "alert");
+      box.setAttribute("aria-live", "polite");
+      document.getElementById("form-submit").insertAdjacentElement("afterend", box);
+    }
+    box.textContent = msg;
+    box.hidden = false;
+    setTimeout(() => { box.hidden = true; }, 9000);
   },
 
   _validateField(field) {
@@ -197,9 +317,6 @@ const Controllers = {
     else btnLoad.setAttribute("aria-hidden", "true");
   },
 
-  _simulateSubmit() {
-    return new Promise(resolve => setTimeout(resolve, 1800));
-  },
 
   /* ═══════════════════════════════════════
      COUNTER ANIMATION (stats in hero)
@@ -305,7 +422,7 @@ const Controllers = {
         children: [
           { label: "Vehículos",                serviceId: "personas-vehiculos",   icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 28l4-12h28l4 12"/></svg>` },
           { label: "Hogar",                    serviceId: "personas-hogar",       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11H3z"/></svg>` },
-          { label: "Vida y Asistencia Médica", serviceId: "personas-vida-medica", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2z"/></svg>` },
+          { label: "Asistencia Médica", serviceId: "personas-vida-medica", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>` },
           { label: "Seguro de viaje",          serviceId: "personas-viaje",       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>` },
           { label: "Vida y Ahorro",            serviceId: "personas-vida-ahorro", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 12h6"/></svg>` },
         ]
