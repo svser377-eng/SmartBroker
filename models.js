@@ -8,7 +8,7 @@ const AppModel = {
 
   /* ───────── BRAND ───────── */
   brand: {
-    name: "SmartBroker",
+    name: "Smartbroker",
     /*tagline: "Tu mejor aliado",
     description: "Corredora de seguros",*/
     logo: {
@@ -222,7 +222,7 @@ const AppModel = {
 
   /* ───────── ABOUT ───────── */
   about: {
-    eyebrow: "Sobre SmartBroker",
+    eyebrow: "Sobre Smartbroker",
     headline: "Más que un seguro,<br>una promesa de respaldo.",
     body: [
       "Somos una Agencia Productora de Seguros, especializada en brindar soluciones de protección para personas, familias y empresas.",
@@ -260,7 +260,7 @@ const AppModel = {
       name: "Catalina Restrepo",
       role: "Empresaria · Santo Domingo",
       avatar: "CR",
-      text: "SmartBroker cambió mi perspectiva sobre los seguros. Su asesoría fue clara, sin letra pequeña, y encontraron un plan que realmente se ajustaba a mi presupuesto.",
+      text: "Smartbroker cambió mi perspectiva sobre los seguros. Su asesoría fue clara, sin letra pequeña, y encontraron un plan que realmente se ajustaba a mi presupuesto.",
       rating: 5,
     },
     {

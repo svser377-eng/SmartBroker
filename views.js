@@ -78,7 +78,7 @@ export const Views = {
               <div class="spider-orbit-ring spider-orbit-ring--2"></div>
               <svg class="spider-svg" id="spiderSvg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
               <button class="spider-center" id="spiderCenter" aria-label="Abrir menú de servicios" aria-expanded="false">
-                <img class="spider-center__img" src="assets/sello-smartbroker.png" alt="SmartBroker" />
+                <img class="spider-center__img" src="assets/sello-smartbroker.png" alt="Smartbroker" />
                 <span class="spider-center__pulse"></span>
               </button>
               <div class="spider-nodes" id="spiderNodes"></div>
@@ -175,7 +175,7 @@ export const Views = {
         <div class="about__visual reveal" aria-hidden="true">
           <div class="about__img-wrap">
             <div class="about__img-placeholder">
-              <img src="assets/Imagen_Equipo.jpeg" alt="Equipo SmartBroker" class="about__team-img" />
+              <img src="assets/Imagen_Equipo.jpeg" alt="Equipo Smartbroker" class="about__team-img" />
             </div>
             
           </div>
@@ -321,17 +321,6 @@ export const Views = {
               <textarea id="cf-message" name="message" rows="4" placeholder="Cuéntanos qué necesitas…" required aria-required="true"></textarea>
               <span class="form-error" id="err-message" role="alert" aria-live="polite"></span>
             </div>
-            <div class="form-group form-group--full">
-              <label for="cf-attach">Adjunto <span class="form-label-hint">(opcional · PDF, JPG, PNG · máx. 500 KB)</span></label>
-              <div class="file-input-wrapper">
-                <input type="file" id="cf-attach" name="attach" accept=".pdf,.jpg,.jpeg,.png" aria-describedby="err-attach"/>
-                <label for="cf-attach" class="file-input-label" aria-hidden="true">
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 3v10M6 9l4-4 4 4"/><path d="M4 15h12" stroke-linecap="round"/></svg>
-                  <span id="file-name-display">Seleccionar archivo…</span>
-                </label>
-                <span class="form-error" id="err-attach" role="alert" aria-live="polite"></span>
-              </div>
-            </div>
             <button type="submit" class="btn btn--primary btn--lg btn--block" id="form-submit">
               <span id="btn-text">Enviar mensaje</span>
               <span id="btn-loading" hidden aria-hidden="true">
@@ -454,7 +443,7 @@ export const Views = {
         <div class="modal__header">
           <div class="modal__header-left">
             <div class="modal__icon" aria-hidden="true">
-              <img src="assets/sello-smartbroker-white.png" alt="SmartBroker" style="width:36px;height:36px;object-fit:contain;" />
+              <img src="assets/sello-smartbroker-white.png" alt="Smartbroker" style="width:36px;height:36px;object-fit:contain;" />
             </div>
             <div>
               <div class="modal__title" id="modal-title">Política de Protección de Datos Personales</div>
@@ -632,11 +621,11 @@ export const Views = {
         <div class="modal__header svc-modal__header">
           <div class="modal__header-left">
             <div class="modal__icon svc-modal__icon" id="svcIcon" aria-hidden="true">
-              <img src="assets/sello-smartbroker-white.png" alt="SmartBroker" style="width:36px;height:36px;object-fit:contain;" />
+              <img src="assets/sello-smartbroker-white.png" alt="Smartbroker" style="width:36px;height:36px;object-fit:contain;" />
             </div>
             <div>
               <div class="modal__title" id="svc-modal-title">Servicio</div>
-              <div class="modal__subtitle" id="svc-modal-sub">SmartBroker</div>
+              <div class="modal__subtitle" id="svc-modal-sub">Smartbroker</div>
             </div>
           </div>
           <button class="modal__close" id="svc-modal-close" aria-label="Cerrar">
