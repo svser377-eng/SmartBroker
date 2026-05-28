@@ -365,7 +365,7 @@ export const Views = {
 
           <div class="footer__social" aria-label="Redes sociales">
             ${contact.social.map(s => `
-              <a href="${s.href}" class="social-btn social-btn--sm ${s.cls || ''}" aria-label="${s.name}" rel="noopener noreferrer">${s.icon}</a>
+              <a href="${s.href}" class="social-btn social-btn--sm ${s.cls || ''}" aria-label="${s.name}" target="_blank" rel="noopener noreferrer">${s.icon}</a>
             `).join("")}
           </div>
         </div>
